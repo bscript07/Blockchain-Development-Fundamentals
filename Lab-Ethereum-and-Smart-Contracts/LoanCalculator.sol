@@ -6,7 +6,7 @@ contract LoanInterestCalculator {
     error InvalidInterestRate(string message);
     error InvalidLoanPeriod(string message);
 
-    function CalculateTotalPayable(int256 principal, int256 interestRate , int256 loanPeriod) public pure returns(int256) {
+    function CalculateTotalPayable(uint256 principal, uint256 interestRate , uint256 loanPeriod) public pure returns(uint256) {
 
         if (interestRate > 100) {
             revert("Interest rate must be between 0 and 100%");
@@ -16,8 +16,8 @@ contract LoanInterestCalculator {
             revert("Loan period must be at least 1 year.");
         }
 
-        int256 interest = (principal * interestRate * loanPeriod) / 100;
-        int256 totalPayable = principal + interest;
+        uint256 interest = (principal * interestRate * loanPeriod) / 100;
+        uint256 totalPayable = principal + interest;
 
         return totalPayable;
     }
