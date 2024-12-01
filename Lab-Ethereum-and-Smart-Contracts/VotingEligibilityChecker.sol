@@ -5,7 +5,7 @@ contract VotingEligibility {
 
     error notEligiableToVote(string message);
 
-    function checkEligibility(int256 age) public pure returns(bool) {
+    function checkEligibility(uint256 age) public pure returns(bool) {
 
         if (age < 18) {
             revert notEligiableToVote("You don't have needed age to vote!");
