@@ -38,7 +38,7 @@ contract Merchant is PaymentProcessor {
 
         require(address(this).balance >= totalRefund, "Balance too low...");
 
-        balances[customer] -= refundAmount;
+        balances[customer] -= refundAmount; // prevent re-entrancy
         payable(customer).transfer(totalRefund);
 
         emit RefundProcessed(customer, refundAmount);
