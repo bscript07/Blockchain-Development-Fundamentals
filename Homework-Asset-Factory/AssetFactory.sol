@@ -39,7 +39,7 @@ contract AssetFactory is Asset {
     event AssetCreated(string symbol, address assetAddress);
 
     constructor() Asset("", "", 0, address(0)) {
-        // Initializing with empty values
+        // Initializing with initial values
     }
 
     function createAsset(
