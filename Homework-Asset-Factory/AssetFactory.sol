@@ -1,13 +1,14 @@
-// // SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
+// Token 
 contract Asset {
     string symbol;
     string name;
     uint256 initialSupply;
     address owner;
 
-    mapping (address => uint256) public balances;
+    mapping (address => uint256) public balances; // store users balances
 
     constructor(
         string memory _symbol,
@@ -33,14 +34,10 @@ contract Asset {
     }
 }
 
-contract AssetFactory is Asset {
+contract AssetFactory {
     mapping (string => address) private assetsBySymbol;
 
     event AssetCreated(string symbol, address assetAddress);
-
-    constructor() Asset("", "", 0, address(0)) {
-        // Initializing with initial values
-    }
 
     function createAsset(
         string memory _symbol,
