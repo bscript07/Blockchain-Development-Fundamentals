@@ -5,8 +5,13 @@ task("ERC20", "Retrieve and display ERC20 token")
     const {ethers} = hre;
 
     const [owner, player1, player2] = await ethers.getSigners();
-
+    console.log(`Owner address: ${owner.address}`);
+    console.log(`Player 1 address: ${player1.address}`);
+    console.log(`Player 2 address: ${player2.address}`);
+    
     const ERC20 = await ethers.getContractFactory("Dogecoin");
+    console.log(`ERC20 contract: ${ERC20}`);
+
     const token = await ERC20.deploy("Dogecoin", "DC", ethers.utils.parseUnits("1000000", 18)); // Create initial supply 
 
     await token.deployed();
