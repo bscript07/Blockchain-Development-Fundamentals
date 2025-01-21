@@ -7,12 +7,10 @@ task("deploySimpleContract", "Deploy a simple contract")
         const [deployer] = await ethers.getSigners();
         console.log(`Deploying contract with the account: ${deployer.address}`);
 
-        const Greeter = await ethers.getContractFactory("Greeter");
-
-        const greeter = await Greeter.deploy("Hello, Hardhat!");
-        console.log(`Greeter contract deployed to: ${greeter.address}`);
+        const Greeter = await ethers.getContractFactory("Greeter"); // Instance of Greeter contract
+        const greeter = await Greeter.deploy("Hello, Hardhat!"); // Deploy Greeter contract 
         
-        await greeter.deployed();
+        await greeter.deploymentTransaction().wait();
         console.log("Greeter contract deployed successfully");
         
 });
