@@ -3,8 +3,6 @@ task("mintTokens", "Mint tokens to a specific address")
   .addParam("amount", "Amount of tokens to mint")
   .setAction(async ({ recipient, amount }, hre) => {
     const [owner] = await hre.ethers.getSigners();
-    console.log(`Owner address: ${owner.address}`);
-    console.log(`Minting ${amount} tokens to ${recipient}`);
 
     // Get the EcoBalance contract
     const EcoBalance = await hre.ethers.getContractFactory("EcoBalance");
