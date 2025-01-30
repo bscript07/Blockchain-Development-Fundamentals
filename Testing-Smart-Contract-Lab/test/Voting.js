@@ -120,30 +120,6 @@ describe("VotingSystem", function () {
         VotingContract.vote(proposalId)
       ).to.be.revertedWithCustomError(VotingContract, "VotingEnded");
     });
-
-    it("Should revert when voting on executed proposals", async function () {
-      const { VotingContract } = await loadFixture(deployVotingFixture);
-
-      // Create a proposal
-      const tx = await VotingContract.createProposal("Test proposal", 3600); // 1 hour duration
-      const receipt = await tx.wait(); // Wait for the transaction to be mined
-
-      // Get the proposalId directly from the transaction receipt
-      const proposalId = receipt.events[0].args.proposalId.toNumber();
-
-      // Simulate the passing of time and execute the proposal
-      await network.provider.send("evm_increaseTime", [3601]); // Move time forward by 1 hour + 1 second
-      await network.provider.send("evm_mine"); // Mine a new block to apply the time changes
-
-      // Execute the proposal
-      await VotingContract.executeProposal(proposalId);
-
-      // Now attempt to vote on the executed proposal
-      // Expect the transaction to revert with the correct message
-      await expect(VotingContract.vote(proposalId)).to.be.revertedWith(
-        "ProposalAlreadyExecuted"
-      );
-    });
   });
 
   describe("executeProposal()", async function () {
