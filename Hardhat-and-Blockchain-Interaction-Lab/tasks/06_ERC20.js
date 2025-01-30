@@ -1,8 +1,5 @@
 task("ERC20", "Retrieve and display ERC20 token").setAction(async (_, hre) => {
   const [owner, player1, player2] = await hre.ethers.getSigners();
-  console.log(`Owner address: ${owner.address}`);
-  console.log(`Player 1 address: ${player1.address}`);
-  console.log(`Player 2 address: ${player2.address}`);
 
   const ERC20 = await hre.ethers.getContractFactory("Dogecoin");
   const token = await ERC20.deploy(

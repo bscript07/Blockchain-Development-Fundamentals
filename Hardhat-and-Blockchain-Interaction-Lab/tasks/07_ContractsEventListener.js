@@ -4,8 +4,6 @@ task(
 ).setAction(async (_, hre) => {
   const [deployer] = await hre.ethers.getSigners();
 
-  console.log(`Deployer address: ${deployer.address}`);
-
   // Deploy the Dogecoin contract
   const Dogecoin = await hre.ethers.getContractFactory("Dogecoin");
   const initialSupply = hre.ethers.parseUnits("1000000", 18); // 1 million tokens with 18 decimals
@@ -19,7 +17,6 @@ task(
     );
 
     // Listen for Transfer events
-    console.log("Listening for Transfer events...");
     tokenContract.on("Transfer", (from, to, value, event) => {
       console.log(`
           Transfer Event Detected:

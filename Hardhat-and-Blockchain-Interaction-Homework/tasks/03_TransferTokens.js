@@ -3,12 +3,8 @@ task("transferTokens", "Transfer tokens between addresses")
   .addParam("amount", "Amount to transfer")
   .setAction(async ({ recipient, amount }, hre) => {
     const [sender] = await hre.ethers.getSigners();
-    console.log(`Sender address: ${sender.address}`);
-    console.log(`Recipient address: ${recipient}`);
-    console.log(`Amount: ${amount}`);
 
     const amountInWei = await hre.ethers.parseEther(amount);
-    console.log(`Amount in Wei: ${amountInWei}`);
 
     try {
       const tx = await sender.sendTransaction({
