@@ -5,7 +5,6 @@ async function main() {
   const token = await Token.deploy(); // Deploy new token
 
   await token.deploymentTransaction().wait();
-  console.log("ERC20 token deployed to:", token.address);
 }
 
 main()
