@@ -6,7 +6,6 @@ async function main() {
   const rewardpool = await RewardPool.deploy(depositTokenAddress);
 
   await rewardpool.deploymentTransaction().wait();
-  console.log("Contract deployed to:", rewardpool.address);
 }
 
 main()
