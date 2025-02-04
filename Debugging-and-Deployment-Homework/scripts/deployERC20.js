@@ -1,6 +1,5 @@
 async function main() {
   const [deployer] = await ethers.getSigners();
-  console.log(`Deploying contract with account: ${deployer.address}`);
 
   const Token = await ethers.getContractFactory("Token"); // New instance of token contract
   const token = await Token.deploy(); // Deploy new token
