@@ -23,7 +23,7 @@ A decentralized token sale system consisting of an ERC20 token (`BitOrangeToken`
 
 ## Installation
 
-1. **Clone the repository**
+1. Clone the repository
 
 ```bash
 git clone <repository-url>
