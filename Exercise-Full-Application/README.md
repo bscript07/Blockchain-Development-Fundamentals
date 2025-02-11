@@ -78,7 +78,7 @@ Deploy both contracts to Sepolia:
 ```bash
 --network sepolia \
 --startoffset 3600 \
---duration 604800 \
+--duration 1728000 \
 --price 50 \
 --tokensforsale 50000 \
 --feereceiver 0xYourFeeReceiverAddress
