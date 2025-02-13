@@ -35,8 +35,3 @@ module.exports = {
   },
 };
 
-// Crowdsale contract address: 0xC3b6dD962c2ffBdcc66d38E5a90a177FD78B3c46
-// BitOrangeToken contract address: 0xD5F7cC2903a76D3926B2bb98BC715D9ee5B63107
-
-// 1 - npx hardhat verify --network sepolia <CONTRACT_ADDRESS> <YOUR_OWNER_ADDRESS_HERE>
-// 2 - npx hardhat verify --network sepolia <CONTRACT_ADDRESS>
