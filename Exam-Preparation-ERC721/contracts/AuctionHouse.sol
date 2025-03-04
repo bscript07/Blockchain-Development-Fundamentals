@@ -67,7 +67,7 @@ contract AuctionHouse is Ownable {
         uint256 bidIncrement,
         uint256 timeExtensionWindow,
         uint256 timeExtensionIncrease
-    ) external {
+    ) external onlyOwner {
         if (minPrice == 0) {
             revert CannotBeZero();
         }
