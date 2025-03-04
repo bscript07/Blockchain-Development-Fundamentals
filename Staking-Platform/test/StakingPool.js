@@ -7,7 +7,7 @@ const { ethers } = require("hardhat");
 
 describe("StakingPool", function () {
   async function initialDeployFixture() {
-    const [owner, user1, user2] = await ethers.getSigners();
+    const [owner, user1] = await ethers.getSigners();
 
     // Deploy StakeX Token contract
     const StakeX = await ethers.getContractFactory("StakeX");
